@@ -56,7 +56,9 @@ const Card = () => {
   EMAIL;type=INTERNET;type=pref:${email}
   TEL;type=MAIN:${work}
   TEL;type=CELL;type=VOICE;type=pref:${cell}
-  ADR;type=WORK;type=pref:;;;${city};;;
+  ADR;CHARSET=UTF-8;type=WORK;type;;${address};${city};${city};${state};${zip};
+  URL;type=WORK;CHARSET=UTF-8:${webURL}
+  NOTE;CHARSET=UTF-8:${note}
   END:VCARD
   `
         ],
