@@ -15,13 +15,6 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 
 const {PORT} = process.env
 
-app.get('/getCard',(req,res)=>{
-    
-})
-
-
-
-
 app.post('/newCard',async(req,res)=>{
     const {organization,URL,
         city,address,state,zip,note,
@@ -53,7 +46,6 @@ app.post('/newCard',async(req,res)=>{
 app.get('/getCard/:organization',async(req,res)=>{
 
     const {organization} = req.params
-
 
     try {
         await client.connect()
