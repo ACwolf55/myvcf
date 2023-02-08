@@ -8,12 +8,16 @@ const { MongoURI } = process.env;
 const client = new MongoClient(MongoURI,{ useNewUrlParser:true, useUnifiedTopology: true})
 
 
+const {PORT} = process.env
 app.use(express.json())
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
+// app.use(express.static('public'))
 app.use(cors())
-app.use(express.static('public'))
 app.use(express.static(path.resolve(`${__dirname}/../build`))) 
 
-const {PORT} = process.env
+app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
+
 
 app.post('/newCard',async(req,res)=>{
     const {organization,URL,
@@ -44,7 +48,7 @@ app.post('/newCard',async(req,res)=>{
 })
 
 app.get('/getCard/:organization',async(req,res)=>{
-
+    
     const {organization} = req.params
 
     try {
@@ -89,5 +93,3 @@ app.post('/registerVendor', async(req,res)=>{
           await client.close()
       }
 })
-
-app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
