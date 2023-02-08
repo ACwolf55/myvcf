@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Promo from '../Promo'
 import HomeReturnBar from '../HomeReturnBar'
 
-export const Frenchys = () => {
+const Frenchys = () => {
 
 
 
@@ -28,3 +28,5 @@ export const Frenchys = () => {
     </div>
   )
 }
+
+export default Frenchys;

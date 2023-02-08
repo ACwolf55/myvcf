@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Promo from '../Promo'
 import HomeReturnBar from '../HomeReturnBar'
 
-export const Graphico = () => {
+const Graphico = () => {
 
 //   X-SOCIALPROFILE;https://www.facebook.com/conceptoaz;TYPE=facebook:https://www.facebook.com/conceptoaz
 // X-SOCIALPROFILE;https://www.instagram.com/conceptograficoaz;TYPE=instagram:https://www.instagram.com/conceptograficoaz
@@ -29,3 +29,5 @@ export const Graphico = () => {
     </div>
   )
 }
+
+export default Graphico;

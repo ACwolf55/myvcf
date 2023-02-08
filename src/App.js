@@ -1,13 +1,13 @@
 
 import './App.css';
 import {Routes,Route} from 'react-router-dom'
-import { Graphico } from './Cards/Graphico';
-import { Plumber } from './Cards/Plumber';
-import { Pokedon } from './Cards/Pokedon';
-import { Frenchys } from './Cards/Frenchys';
+import Graphico from './Cards/Graphico';
+import Plumber from './Cards/Plumber';
+import Pokedon from './Cards/Pokedon';
+import Frenchys from './Cards/Frenchys';
 import CardTest from './Cards/CardTest';
-import {Home} from './Home'
-import { ExistingClients } from './ExistingClients';
+import Home from './Home'
+import ExistingClients from './ExistingClients';
 import ErrorPage from './ErrorPage';
 import NewCard from './NewCard';
 import Card from './Card';

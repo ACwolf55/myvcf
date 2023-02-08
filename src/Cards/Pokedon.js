@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Promo from '../Promo'
 import HomeReturnBar from '../HomeReturnBar'
 
-export const Pokedon = () => {
+const Pokedon = () => {
 
 
 
@@ -28,3 +28,5 @@ export const Pokedon = () => {
     </div>
   )
 }
+
+export default Pokedon;

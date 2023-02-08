@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Promo from '../Promo'
 import HomeReturnBar from '../HomeReturnBar'
 
-export const Plumber = () => {
+const Plumber = () => {
   return (
     <>
     <Header/>
@@ -31,3 +31,5 @@ export const Plumber = () => {
      </>
   )
 }
+
+export default Plumber;

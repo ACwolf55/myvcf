@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from './Header'
 import HomeReturnBar from './HomeReturnBar'
 
-export const ExistingClients = () => {
+const ExistingClients = () => {
 
 
   return (
@@ -40,3 +40,5 @@ export const ExistingClients = () => {
    </div>
   )
 }
+
+export default ExistingClients;
