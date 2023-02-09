@@ -49,16 +49,17 @@ const Card = () => {
     const createVCard = (e)=> {
       e.preventDefault();
       var file = new Blob(
-        ["\ufeff",
+        // ["\ufeff",
+        [
           `BEGIN:VCARD
   VERSION:3.0
   ORG:${organization}
   EMAIL;type=INTERNET;type=pref:${email}
   TEL;type=MAIN:${work}
   TEL;type=CELL;type=VOICE;type=pref:${cell}
-  ADR;CHARSET=UTF-8;type=WORK;type;;${address};${city};${city};${state};${zip};
-  URL;type=WORK;CHARSET=UTF-8:${webURL}
-  NOTE;CHARSET=UTF-8:${note}
+  ADR;;type=WORK;type=pref;;${address};${city};${city};${state};${zip};
+  URL;type=WORK;:${webURL}
+  NOTE;:${note}
   END:VCARD
   `
         ],
