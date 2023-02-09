@@ -124,7 +124,7 @@ END:VCARD
           <h5>IF/WHEN - Feel free to send pictures/videos of issues via text or email!</h5>
 
     <a href="" onClick={createVCard}>
-       <button>ADD TO CONTACTS</button>
+       <button id='contact-btn'>ADD TO CONTACTS</button>
      </a>
      </div>
 
