@@ -47,6 +47,8 @@ const Card = () => {
 
     const createVCard = (e)=> {
       e.preventDefault();
+      let cell = Number(cellPhone)
+      let work = Number(workPhone)
       var file = new Blob(
         // ["\ufeff",
         [
@@ -66,8 +68,8 @@ VERSION:3.0
 ORG:${organization}
 TITLE:${'hey'};
 EMAIL;type=INTERNET;type=pref:${email}
-TEL;type=MAIN:${workPhone}
-TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
+TEL;type=MAIN:${work}
+TEL;type=CELL;type=VOICE;type=pref:${cell}
 ADR;type=WORK;type=pref:;;;${city};;;
 END:VCARD
 `
