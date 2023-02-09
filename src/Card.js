@@ -58,8 +58,8 @@ const Card = () => {
   // VERSION:3.0
   // ORG:${organization}
   // EMAIL;type=INTERNET;type=pref:${email}
-  // TEL;type=MAIN:${work}
-  // TEL;type=CELL;type=VOICE;type=pref:${cell}
+  // TEL;type=MAIN:${workPhone}
+  // TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
   // ADR;;type=WORK;type=pref;;${address};${city};${city};${state};${zip};
   // URL;type=WORK;:${webURL}
   // NOTE;:${note}
@@ -71,7 +71,9 @@ ORG:${organization}
 EMAIL;type=INTERNET;type=pref:${email}
 TEL;type=MAIN:${workPhone}
 TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
-ADR;type=WORK;type=pref:;;;${city};;;
+ADR;type=WORK;type=pref:;;${address};${city};${state};${zip};
+URL;type=WORK;:${webURL}
+NOTE;:${note}
 END:VCARD
 `
         ],
