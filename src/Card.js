@@ -66,8 +66,8 @@ VERSION:3.0
 ORG:${organization}
 TITLE:${'hey'};
 EMAIL;type=INTERNET;type=pref:${email}
-TEL;type=MAIN:${work}
-TEL;type=CELL;type=VOICE;type=pref:${cell}
+TEL;type=MAIN:${workPhone}
+TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
 ADR;type=WORK;type=pref:;;;${city};;;
 END:VCARD
 `
