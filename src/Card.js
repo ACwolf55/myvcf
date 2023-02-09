@@ -67,7 +67,7 @@ const Card = () => {
       // let a = document.createElement("a");
       // a.download = `${organization}.vcf`;
       // a.href = URL.createObjectURL(file);
-      // var reader = new FileReader();
+      var reader = new FileReader();
       if (navigator.userAgent.match("CriOS")) {
         reader.onloadend = e => {
           window.open(reader.result);
