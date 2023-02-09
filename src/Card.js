@@ -49,6 +49,7 @@ const Card = () => {
       e.preventDefault();
       let cell = Number(cellPhone)
       let work = Number(workPhone)
+      console.log(cell)
       var file = new Blob(
         // ["\ufeff",
         [
