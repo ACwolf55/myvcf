@@ -21,8 +21,8 @@ const Card = () => {
     const [zip,setZip] = useState('')
     const [note,setNote] = useState('')
     const [email,setEmail] = useState('')
-    const [cellPhone,setCell] = useState('')
-    const [workPhone,setWork] = useState('')
+    const [cellPhone,setCellPhone] = useState('')
+    const [workPhone,setWorkPhone] = useState('')
     const [logo,setLogo] = useState('')
     const [facebook,setFacebook] = useState('')
     const [instagram,setInstagram] = useState('')
@@ -39,17 +39,18 @@ const Card = () => {
             setZip(res.data.zip)
             setNote(res.data.note)
             setEmail(res.data.email)
-            setCell(res.data.cell)
-            setWork(res.data.work)
+            setCellPhone(res.data.cellPhone)
+            setWorkPhone(res.data.workPhone)
         })
 
     },[])
 
     const createVCard = (e)=> {
       e.preventDefault();
-      let cell = parseInt(cellPhone)
-      let work = parseInt(workPhone)
-      console.log(cell)
+      // console.log(cellPhone)
+      // let cell = parseInt(cellPhone)
+      // let work = parseInt(workPhone)
+      // console.log(cell)
       var file = new Blob(
         // ["\ufeff",
         [
@@ -67,10 +68,9 @@ const Card = () => {
         `BEGIN:VCARD
 VERSION:3.0
 ORG:${organization}
-TITLE:${'hey'};
 EMAIL;type=INTERNET;type=pref:${email}
-TEL;type=MAIN:${work}
-TEL;type=CELL;type=VOICE;type=pref:${cell}
+TEL;type=MAIN:${workPhone}
+TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
 ADR;type=WORK;type=pref:;;;${city};;;
 END:VCARD
 `
