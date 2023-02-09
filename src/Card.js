@@ -62,8 +62,8 @@ const Card = () => {
   END:VCARD
   `
         ]
-        // ,
-        // { type: "text/vcard;charset=utf-8" }
+        ,
+        { type: "text/vcard;" }
       );
       let a = document.createElement("a");
       a.download = `${organization}.vcf`;
