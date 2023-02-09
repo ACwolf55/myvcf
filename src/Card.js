@@ -47,8 +47,8 @@ const Card = () => {
 
     const createVCard = (e)=> {
       e.preventDefault();
-      let cell = Number(cellPhone)
-      let work = Number(workPhone)
+      let cell = parseInt(cellPhone)
+      let work = parseInt(workPhone)
       console.log(cell)
       var file = new Blob(
         // ["\ufeff",
