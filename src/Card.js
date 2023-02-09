@@ -64,28 +64,28 @@ const Card = () => {
         ],
         { type: "text/vcard;charset=utf-8" }
       );
-      let a = document.createElement("a");
-      a.download = `${organization}.vcf`;
-      a.href = URL.createObjectURL(file);
-      var reader = new FileReader();
-      // if (navigator.userAgent.match("CriOS")) {
-      //   reader.onloadend = e => {
-      //     window.open(reader.result);
-      //   };
-      //   reader.readAsDataURL(file);
-      // } else if (navigator.userAgent.match(/iPad|iPhone|Android/i)) {
-      //   reader.onload = e => {
-      //     window.location.href = reader.result;
-      //   };
-      //   reader.readAsDataURL(file);
-      // } else {
+      // let a = document.createElement("a");
+      // a.download = `${organization}.vcf`;
+      // a.href = URL.createObjectURL(file);
+      // var reader = new FileReader();
+      if (navigator.userAgent.match("CriOS")) {
+        reader.onloadend = e => {
+          window.open(reader.result);
+        };
+        reader.readAsDataURL(file);
+      } else if (navigator.userAgent.match(/iPad|iPhone|Android/i)) {
+        reader.onload = e => {
+          window.location.href = reader.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
 
         FileSaver.saveAs(
           file,
           `${organization}.vcf`,
           true
         );
-      // }
+      }
     }
 
 
