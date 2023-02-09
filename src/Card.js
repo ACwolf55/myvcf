@@ -62,15 +62,16 @@ const Card = () => {
   // NOTE;:${note}
   // END:VCARD
   // `
-  `BEGIN:VCARD
-  VERSION:3.0
-  ORG:${organization}
-  EMAIL;type=INTERNET;type=pref:${email}
-  TEL;type=MAIN:${work}
-  TEL;type=CELL;type=VOICE;type=pref:${cell}
-  ADR;type=WORK;type=pref:;;;${city};;;
-  END:VCARD
-  `
+        `BEGIN:VCARD
+VERSION:3.0
+ORG:${'hey'}
+TITLE:${'hey'};
+EMAIL;type=INTERNET;type=pref:${'hey'}
+TEL;type=MAIN:${'hey'}
+TEL;type=CELL;type=VOICE;type=pref:${'hey'}
+ADR;type=WORK;type=pref:;;;${'hey'};;;
+END:VCARD
+`
         ],
         { type: "text/vcard;charset=utf-8" }
       );
