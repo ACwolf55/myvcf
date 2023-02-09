@@ -51,15 +51,24 @@ const Card = () => {
       var file = new Blob(
         // ["\ufeff",
         [
-          `BEGIN:VCARD
+  //         `BEGIN:VCARD
+  // VERSION:3.0
+  // ORG:${organization}
+  // EMAIL;type=INTERNET;type=pref:${email}
+  // TEL;type=MAIN:${work}
+  // TEL;type=CELL;type=VOICE;type=pref:${cell}
+  // ADR;;type=WORK;type=pref;;${address};${city};${city};${state};${zip};
+  // URL;type=WORK;:${webURL}
+  // NOTE;:${note}
+  // END:VCARD
+  // `
+  `BEGIN:VCARD
   VERSION:3.0
   ORG:${organization}
   EMAIL;type=INTERNET;type=pref:${email}
   TEL;type=MAIN:${work}
   TEL;type=CELL;type=VOICE;type=pref:${cell}
-  ADR;;type=WORK;type=pref;;${address};${city};${city};${state};${zip};
-  URL;type=WORK;:${webURL}
-  NOTE;:${note}
+  ADR;type=WORK;type=pref:;;;${city};;;
   END:VCARD
   `
         ],
