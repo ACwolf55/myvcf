@@ -41,7 +41,6 @@ const Card = () => {
             setEmail(res.data.email)
             setCell(res.data.cell)
             setWork(res.data.work)
-            navigate(`/card/${organization}`)
         })
 
     },[])
