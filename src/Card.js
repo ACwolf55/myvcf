@@ -61,8 +61,9 @@ const Card = () => {
   NOTE;CHARSET=UTF-8:${note}
   END:VCARD
   `
-        ],
-        { type: "text/vcard;charset=utf-8" }
+        ]
+        // ,
+        // { type: "text/vcard;charset=utf-8" }
       );
       let a = document.createElement("a");
       a.download = `${organization}.vcf`;
