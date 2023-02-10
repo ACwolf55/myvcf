@@ -20,6 +20,13 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
 
+app.post('/picUpload', (req,res)=>{
+
+
+    
+})
+
+
 app.post('/newCard',async(req,res)=>{
     const {organization,URL,
         city,address,state,zip,note,
