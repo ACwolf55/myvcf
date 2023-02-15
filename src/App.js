@@ -11,6 +11,7 @@ import ExistingClients from './ExistingClients';
 import ErrorPage from './ErrorPage';
 import NewCard from './NewCard';
 import Card from './Card';
+import ImageTest from './ImageTest';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
     <Route path='/frenchys' element={<Frenchys/>} />
     <Route path='/card/:organization' element={<Card/>} />
     <Route path='/card-test' element={<CardTest/>} />
+    <Route path='/image-test' element={<ImageTest/>} />
     <Route path='*' element={<ErrorPage/>} />
   </Routes>
     </div>

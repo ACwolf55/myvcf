@@ -7,6 +7,8 @@ require("dotenv").config();
 const {MongoClient} = require('mongodb');
 const { MongoURI } = process.env;
 const client = new MongoClient(MongoURI,{ useNewUrlParser:true, useUnifiedTopology: true})
+const multer = require('multer')
+const upload = multer()
 
 
 const {PORT} = process.env
@@ -20,8 +22,10 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
 
-app.post('/picUpload', (req,res)=>{
-
+app.post('/picUpload', upload.single("file"), (req,res)=>{
+    console.log('test')
+    console.log(req.file)
+    res.send(req.body)
 
     
 })

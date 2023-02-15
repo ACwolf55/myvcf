@@ -5,17 +5,18 @@ import axios from 'axios'
  const ImageTest = () => {
 
     const [file, setfile] = useState()
+    const [name,setName] = useState('test')
 
-    const upload =()=>{
+    const upload = event =>{
+
         const data = new FormData();
         data.append("name",name);
         data.append("file",file)
-        console.log(data)
 
         axios.post('/picUpload',data).then((res)=>{
-            console.log(res.data)
+            console.log(res)
 
-            
+            res.send(req.body)
         }).then((err)=>console.log(err))
     }
 
@@ -35,6 +36,7 @@ import axios from 'axios'
             }}
             />
         </form>
+        <button onClick={upload}>Uplaod</button>
 
     </div>
   )
