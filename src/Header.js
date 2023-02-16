@@ -1,23 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate = useNavigate()
+
   return (
-    <Link to="/new-card">
+   
       <header>
-        <div className="header-sides">
+        <div className="header-sides" onClick={()=> navigate('/sign-up')}>
           <img src="/gold-badge-left.png"></img>
         </div>
 
-        <div className="header-center">
+        <div className="header-center" onClick={()=> navigate('/')}>
           <img className="logo" src="/myVcard_logo.jpg"></img>
         </div>
 
-        <div className="header-sides">
+        <div className="header-sides" onClick={()=> navigate('/sign-up')}>
           <img src="/gold-badge-right.png"></img>
         </div>
       </header>
-    </Link>
+
   );
 };
 
