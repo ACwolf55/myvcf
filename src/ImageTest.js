@@ -15,8 +15,7 @@ import axios from 'axios'
 
         axios.post('/picUpload',data).then((res)=>{
             console.log(res)
-
-            res.send(req.body)
+            
         }).then((err)=>console.log(err))
     }
 

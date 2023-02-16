@@ -11,9 +11,9 @@ const Home = () => {
     <Header/>
     <br></br>
       <nav>
-          <div className='nav-button'>SIGN-UP</div>
+          <div className='nav-button' onClick={()=>navigate('/sign-up')}>SIGN-UP</div>
           <div className='nav-button' onClick={()=>navigate('/clients')}>EXISTING CLIENTS</div>
-          <div className='nav-button'>LOGIN</div>
+          <div className='nav-button' onClick={()=>navigate('/login')}>LOGIN</div>
       
       </nav>
       <h1>Who Are We?</h1>

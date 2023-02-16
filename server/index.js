@@ -22,10 +22,18 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
 
-app.post('/picUpload', upload.single("file"), (req,res)=>{
+app.post('/picUpload', upload.single("file"), (req,res,next)=>{
     console.log('test')
     console.log(req.file)
     res.send(req.body)
+
+
+    const {
+        file,
+        body:{name}
+    } = req
+    
+    if(file.detectedFileExtension != ".jpg" || ".png") next(new Error("invlaid file type"))
 
     
 })

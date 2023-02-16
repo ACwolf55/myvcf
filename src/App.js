@@ -12,6 +12,8 @@ import ErrorPage from './ErrorPage';
 import NewCard from './NewCard';
 import Card from './Card';
 import ImageTest from './ImageTest';
+import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
     <Route path='/card/:organization' element={<Card/>} />
     <Route path='/card-test' element={<CardTest/>} />
     <Route path='/image-test' element={<ImageTest/>} />
+    <Route path='/sign-up' element={<SignUp/>} />
+    <Route path='/login' element={<Login/>} />
     <Route path='*' element={<ErrorPage/>} />
   </Routes>
     </div>
