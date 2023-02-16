@@ -1,26 +1,34 @@
 import React,{useState,useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
+import Header from './Header'
 import axios from 'axios'
+import Footer from './Footer'
+import HomeReturnBar from './HomeReturnBar'
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 
 
 const SignUp = () => {
 
-  const navigate = useNavigate()
+    const navigate = useNavigate()
 
-  const [visible,setVisible] = useState(false)
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
-  const [companyName,setCompanyName] = useState('')
-  const [phone,setPhone] = useState('')
-  const [address,setAddress] = useState('')
-  const [city,setCity] = useState('')
-  const [state,setState] = useState('')
-  const [zip,setZip] = useState('')
-  const [service,setService] = useState('')
-  const [about,setAbout] = useState('')
-
-  const [page,setPage] = useState(1)
+    const [visible,setVisible] = useState(false)
+   
+     const [organization,setOrganization] = useState('')
+     const [password,setPassword] = useState('')
+     const [URL,setURL] = useState('')
+     const [city,setCity] = useState('')
+     const [address,setAddress] = useState('')
+     const [state,setState] = useState('')
+     const [zip,setZip] = useState('')
+     const [note,setNote] = useState('')
+     const [email,setEmail] = useState('')
+     const [cellPhone,setCell] = useState('')
+     const [workPhone,setWork] = useState('')
+     const [logo,setLogo] = useState('')
+     const [facebook,setFacebook] = useState('')
+     const [instagram,setInstagram] = useState('')
+   
+     const [page,setPage] = useState(1)
 
   const togglePass=(e)=>{
     e.preventDefault()
@@ -45,17 +53,15 @@ const SignUp = () => {
 
   const register =(e)=>{
     e.preventDefault()
-    const newVendor = {
-      email,password,companyName,phone,address,city,state,zip,service
-    }
+    const newVendor = {organization,URL,city,address,state,zip,note,email,cellPhone,workPhone,logo,facebook,instagram}
     const test = validateEmail(newVendor.email)
     console.log(newVendor)
        if (email === "") {
            alert("Please enter email");
          } else if (password.length < 6) {
            alert("Please enter password");
-         } else if (companyName=='') {
-          alert("Please enter Company name"); 
+         } else if (organization=='') {
+          alert("Please enter organization name"); 
          } else if (test){
 
            axios.post('/registerVendor',newVendor).then((res)=>{
@@ -69,123 +75,87 @@ const SignUp = () => {
      }
    }
 
-   switch (page) {
-    case 1:
-        return (
-    <div>
-        <Header/>
-        <Nav/>
-        <ProfileBar/>
-        <main>
-        <div className='registration-form'>
-        <p>*Page 1 required, other pages optional</p> 
-        <h4>Vendor Registration {page}/4</h4> 
-        <input placeholder='Email' onChange={(e)=>setEmail(e.target.value)} className='reg-input'></input>
-
-        <div className='password-wrapper'>
-          <input
-            type={visible ? "text" : "password" }
-            name="password"
-            placeholder="password"
-            className='reg-input'
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className='show-password-btn' onClick={togglePass}>
-            { visible ? <AiOutlineEye/> : <AiOutlineEyeInvisible /> }
-          </button>
-          </div>
-
-        <input placeholder='organization' onChange={(e)=>setCompanyName(e.target.value)} className='reg-input'></input>
-        </div>
-        </main>
-             <footer>
-            <div></div>
-            <button onClick={()=>setPage(2)}>CONTINUE</button>
-         </footer>
-        </div>
-        )
-    case 2:
-      return (
-        <div>
-            <Header/>
-            <Nav/>
-            <ProfileBar/>
-            <main>
-            <div className='registration-form'>
-            <h4>Vendor Registration {page}/4</h4> 
-            <input placeholder='Phone #' onChange={(e)=>setPhone(e.target.value)}className='reg-input'></input>
-            </div>
-            </main>
-            <footer>
-            <button onClick={()=>setPage(1)}>BACK</button>
-           <button onClick={()=>setPage(3)}>CONTINUE</button>
-          </footer>
-            </div>)
-    case 3:
-      return (
-        <div>
-            <Header/>
-            <Nav/>
-            <ProfileBar/>
-            <main>
-            <div className='registration-form'>
-            <h4>Vendor Registration {page}/4</h4> 
-        
-      <input placeholder='Address' onChange={(e)=>setAddress(e.target.value)} className='reg-input'></input>
-         <div className='city-state-zip'>
-        <input placeholder='city' onChange={(e)=>setCity(e.target.value)} classname='addr-input'></input>
-        <input placeholder='state' onChange={(e)=>setState(e.target.value)} classname='addr-input'/>
-        <input placeholder='zip' onChange={(e)=>setZip(e.target.value)} classname='addr-input'></input>
-          
-            </div>
-            </div>
-            </main>
-            <footer>
-            <button onClick={()=>setPage(2)}>BACK</button>
-           <button onClick={()=>setPage(4)}>CONTINUE</button>
-          </footer>
-            </div>)
-    case 4:
-      return (
-        <div>
-            <Header/>
-            <Nav/>
-            <ProfileBar/>
-            <main>
-            <div className='registration-form'>
-            <h4>Vendor Registration {page}/4</h4> 
-  
- <select value={service} name="service" id="service" onChange={e=>setService(e.target.value)}>
-   <option hidden>Select Service Type</option> 
-   <option value="House Cleaning">House Cleaning</option>
-   <option value="Painting">Painting</option>
-   <option value="Yard Work">Yard Work</option>
-   <option value="Electric">Electric</option>
-  <option value="Home / General Contracting">Home / General Contracting</option>
-   <option value="Music">Musician</option>
-   <option value="Art">Artist</option>
-   <option value="Photographer">Photographer</option>
-   <option value="Video Editor">Video Editor</option>
-   <option value="Marketing">Marketing</option>
-  <option value="Writer">Writer</option>
-   <option value="Developer / Programming">Developer / Programming</option>
- </select> 
-      
-        </div>
-
-           
-
-            </main>
-            <footer>
-            <button onClick={()=>setPage(3)}>SKIP</button>
-           <button onClick={register}>REGISTER</button>
-          </footer>
-            </div>)
+   const submitNewCard =()=>{
+    axios.post('/newCard',{organization,URL,city,address,state,zip,note,email,cellPhone,workPhone,logo,facebook,instagram}).then((res)=>{
+      console.log(res.data)
+      navigate(`/card/${organization}`)
+    })
   }
 
-
-  return (
-    <div>SignUp</div>
+   
+        return (
+            <div>
+                      <Header/>
+            <HomeReturnBar />
+            <p>Sing-up for a card to be created for your business!~</p>
+   
+           <h3>Organization</h3>
+            <input onChange={(e)=>{setOrganization(e.target.value)}}></input>
+   
+            <h3>Password</h3>
+   
+            <div className='password-wrapper'>
+             <input
+               type={visible ? "text" : "password" }
+               name="password"
+               placeholder="password"
+               className='reg-input'
+               onChange={(e) => setPassword(e.target.value)}
+             />
+             <button className='show-password-btn' onClick={togglePass}>
+               { visible ? <AiOutlineEye/> : <AiOutlineEyeInvisible /> }
+             </button>
+             </div>
+   
+            <h3>Website URL</h3>
+            <input onChange={(e)=>{setURL(e.target.value)}}></input>
+   
+            <h3>City</h3>
+            <input onChange={(e)=>{setCity(e.target.value)}}></input>
+   
+             <h3>Address</h3>
+            <input onChange={(e)=>{setAddress(e.target.value)}}></input>
+   
+            <h3>State</h3>
+            <input onChange={(e)=>{setState(e.target.value)}}></input>
+   
+            <h3>Zip</h3>
+            <input onChange={(e)=>{setZip(e.target.value)}}></input>
+   
+            <h3>Email</h3>
+            <input onChange={(e)=>{setEmail(e.target.value)}}></input>
+   
+            <h3>Cell Phone</h3>
+            <input onChange={(e)=>{setCell(e.target.value)}}></input>
+   
+            <h3>Work Phone</h3>
+            <input onChange={(e)=>{setWork(e.target.value)}}></input>
+   
+            <h3>Note</h3>
+            <input onChange={(e)=>{setNote(e.target.value)}}></input>
+   
+            {/* <h3>Logo / Pic</h3>
+            <input onChange={(e)=>{setLogo(e.target.value)}}></input>
+   
+            <h3>Instagram</h3>
+            <input onChange={(e)=>{setInstagram(e.target.value)}}></input>
+   
+            <h3>Facebook</h3>
+            <input onChange={(e)=>{setFacebook(e.target.value)}}></input> */}
+           <br></br>
+           <br></br>
+            <button onClick={submitNewCard} id='contact-btn'> SIGN-UP </button>
+            <br></br>
+           <br></br>
+           <Footer/>
+           <br></br>
+           <br></br>
+   
+   
+   
+   
+   
+       </div>
   )
 }
 
