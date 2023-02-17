@@ -14,6 +14,7 @@ import Card from './Card';
 import ImageTest from './ImageTest';
 import Login from './Login';
 import SignUp from './SignUp';
+import SirensAndSprites from './Cards/SirensAndSprites.js';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
     <Route path='/image-test' element={<ImageTest/>} />
     <Route path='/sign-up' element={<SignUp/>} />
     <Route path='/login' element={<Login/>} />
+    <Route path='/Sirens-&-Sprites' element={<SirensAndSprites/>} />
     <Route path='*' element={<ErrorPage/>} />
   </Routes>
     </div>
