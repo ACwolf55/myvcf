@@ -16,11 +16,12 @@ const SirensAndSprites = () => {
        <div className='contact-card'>
     <div className='logo-background'>
     <div className='logo-card'>
-    <img src='/SirensAndSprites.png' style={{"height" : "100px", "width" : "250px"}}></img>
+    <img src='/SirensAndSpritesEdit.png' style={{"height" : "100px", "width" : "250px"}}></img>
     </div> 
     </div>
     </div>
-
+    <h5>Custom Signs & Hand Lettering</h5>
+    <h5>"instagram: @cardstockandchalk          Venmo: @kelsey-freese"</h5>
 
          <p style={{"marginTop" : "50px", "marginBottom" : "50px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
     <a href='/SirensAndSprites.vcf' download><button id='contact-btn'><b>Add to Contacts</b></button></a>

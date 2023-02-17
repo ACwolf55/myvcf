@@ -63,6 +63,7 @@ const Login = () => {
       <Header/>
       <HomeReturnBar />
   <label>
+    <h3>Email</h3>
           <input
             type="email"
             name="email"
@@ -71,6 +72,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             style={{boxShadow:'black 0px 1px 2px'}}
           />
+          <h3>Password</h3>
           <div className='password-wrapper'>
           <input
             type={visible ? "text" : "password" }
@@ -86,7 +88,8 @@ const Login = () => {
           </div>
         </label>
        
-       <button onClick={loginVendor} style={{boxShadow:'black 1px 1px 2px', marginRight:'5px',marginTop:'5px'}}>Login</button>
+       <br></br>
+       <button onClick={loginVendor} style={{boxShadow:'black 1px 1px 2px', marginRight:'5px',marginTop:'5px'}} id='contact-btn'>Login</button>
     </div>
   )
 }
