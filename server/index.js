@@ -3,6 +3,7 @@ const app = express()
 const path =require('path')
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs')
 require("dotenv").config(); 
 const {MongoClient} = require('mongodb');
 const { MongoURI } = process.env;
@@ -44,18 +45,29 @@ app.post('/newCard',async(req,res)=>{
         city,address,state,zip,note,
         mail,cellPhone, workPhone,
     } = req.body
-    console.log(req.body)
 
+    let vcf ={}
+
+    if(workPhone==''){
+        vcf={organization,URL,
+            city,address,state,zip,note,
+            mail,cellPhone
+        } 
+    }else{
+       vcf={organization,URL,
+            city,address,state,zip,note,
+            mail,cellPhone, workPhone
+        } 
+    }
+    console.log(req.body)
         //  const {organization,URL,
         // city,address,state,zip,note,email,cellPhone, workPhone,
         // logo,facebook,instagram} = req.body
 
-        console.log(req.body)
-
         try {
             await client.connect()
       
-            const cardRes = await client.db('quick-quotes').collection('vcards').insertOne(req.body)
+            const cardRes = await client.db('quick-quotes').collection('vcards').insertOne(vcf)
             
             
             return res.send(cardRes)
@@ -113,3 +125,29 @@ app.post('/registerVendor', async(req,res)=>{
           await client.close()
       }
 })
+
+app.post('/loginVendor', async(req,res)=>{
+    let { email, password } = req.body;
+  
+    try {
+      await client.connect()
+  
+    //   const user = await client.db('quick-quotes').collection('users').findOne() 
+      const user = await client.db('quick-quotes').collection('vendors').findOne( {email:email} )
+    //   const user = await cursor.toArray()
+    //   user = user[0]
+        if(!user){
+          return res.status(401).send('Vendor not found')
+        }
+        let isAuth = bcrypt.compareSync(password, user.password);
+        if (!isAuth) {
+          return res.status(401).send("incorrect password");
+        }
+        return res.status(200).send(user);
+      }
+      catch (e){
+        console.error(e)
+    } finally {
+        await client.close()
+    }
+  })

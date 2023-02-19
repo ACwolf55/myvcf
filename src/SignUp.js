@@ -72,24 +72,13 @@ const SignUp = () => {
   const register = (e) => {
     e.preventDefault();
     const newVendor = {
-      organization,
-      URL,
-      city,
-      address,
-      state,
-      zip,
-      note,
-      email,
-      cellPhone,
-      workPhone,
-      logo,
-      facebook,
-      instagram,
-    };
+      email,password,organization,cellPhone,address,city,state,zip
+    }
     const test = validateEmail(newVendor.email);
-    console.log(newVendor);
-  
+    
+    
     if(test){
+      console.log(newVendor);
       axios
         .post("/registerVendor", newVendor)
         .then((res) => {
@@ -125,20 +114,21 @@ const SignUp = () => {
         console.log(res.data);
         navigate(`/card/${organization}`);
       });
-  };
-
+    };
+    
   return (
     <div>
       <Header />
       <HomeReturnBar />
       <p>Sing-up for a card to be created for your business!~</p>
 
-      <h3>Organization</h3>
-      <input
-        onChange={(e) => {
-          setOrganization(e.target.value);
-        }}
-      ></input>
+
+        <h3>Email</h3>
+        <input
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        ></input>
 
       <h3>Password</h3>
 
@@ -154,6 +144,13 @@ const SignUp = () => {
           {visible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
         </button>
       </div>
+          
+                <h3>Organization</h3>
+                <input
+                  onChange={(e) => {
+                    setOrganization(e.target.value);
+                  }}
+                ></input>
 
       <h3>Website URL</h3>
       <input
@@ -190,12 +187,6 @@ const SignUp = () => {
         }}
       ></input>
 
-      <h3>Email</h3>
-      <input
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      ></input>
 
       <h3>Cell Phone</h3>
       <input
@@ -228,7 +219,7 @@ const SignUp = () => {
             <input onChange={(e)=>{setFacebook(e.target.value)}}></input> */}
       <br></br>
       <br></br>
-      <button onClick={submitNewCard} id="contact-btn">
+      <button onClick={register} id="contact-btn">
         {" "}
         SIGN-UP{" "}
       </button>

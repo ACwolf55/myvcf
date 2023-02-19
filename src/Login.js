@@ -4,21 +4,21 @@ import { useNavigate } from 'react-router-dom'
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 import Header from './Header'
 import HomeReturnBar from './HomeReturnBar'
+import { useParams } from 'react-router-dom'
 
 const Login = () => {
 
   const navigate = useNavigate()
+  
+
+  const {organization} = useParams()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [visible,setVisible] = useState(false)
 
     useEffect(()=>{
-      let email = sessionStorage.getItem("email");
       // console.log(email)
-      if(email!==null){
-        navigate('/home')
-      }
   
     },[])
 
@@ -26,15 +26,6 @@ const Login = () => {
       e.preventDefault()
       setVisible(prev=>!prev)
     }
-
-
-    const validateEmail = (email) => {
-      return String(email)
-        .toLowerCase()
-        .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-    };
  
     const loginVendor =(e)=>{
       e.preventDefault()
@@ -48,11 +39,11 @@ const Login = () => {
             sessionStorage.setItem("email", res.data.email);
             sessionStorage.setItem("id", res.data._id);
             sessionStorage.setItem("service", res.data.service);
-            sessionStorage.setItem("companyName", res.data.companyName);
+            sessionStorage.setItem("companyName", res.data.organization);
             sessionStorage.setItem("about",res.data.about)
             sessionStorage.setItem("city",res.data.city)
             sessionStorage.setItem("isVendor", true);
-            navigate('/home')
+            navigate(`/card/${res.data.organization}`)
         }).catch((err)=> alert(err.response.request.response))}
     }
 
@@ -86,8 +77,7 @@ const Login = () => {
             { visible ? <AiOutlineEye/> : <AiOutlineEyeInvisible /> }
           </button>
           </div>
-        </label>
-       
+          </label>
        <br></br>
        <button onClick={loginVendor} style={{boxShadow:'black 1px 1px 2px', marginRight:'5px',marginTop:'5px'}} id='contact-btn'>Login</button>
     </div>
