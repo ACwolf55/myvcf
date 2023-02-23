@@ -23,16 +23,25 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
 
-app.post('/picUpload', upload.single("file"), (req,res,next)=>{
+app.post('/picUpload', async (req,res,next)=>{
     console.log('test')
-    console.log(req.file)
-    res.send(req.body)
+    console.log(req.body)
+  
 
 
-    const {
-        file,
-        body:{name}
-    } = req
+    try {
+      await client.connect()
+
+      const cardRes = await client.db('quick-quotes').collection('pics').insertOne(req.body)
+      
+      
+      return res.send(req.body)
+      
+    } catch (e){
+        console.error(e)
+    } finally {
+        await client.close()
+    }
     
     if(file.detectedFileExtension != ".jpg" || ".png") next(new Error("invlaid file type"))
 
