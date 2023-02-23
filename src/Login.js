@@ -17,8 +17,11 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [visible,setVisible] = useState(false)
 
+      const inputRef = useRef()
+
     useEffect(()=>{
       // console.log(email)
+      inputRef.current.focus()
   
     },[])
 
@@ -56,6 +59,7 @@ const Login = () => {
   <label>
     <h3>Email</h3>
           <input
+          ref={inputRef}
             type="email"
             name="email"
             placeholder="email"
@@ -66,6 +70,7 @@ const Login = () => {
           <h3>Password</h3>
           <div className='password-wrapper'>
           <input
+          ref={inputRef}
             type={visible ? "text" : "password" }
             name="password"
             placeholder="password"

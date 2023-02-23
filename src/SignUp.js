@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Header from "./Header";
 import axios from "axios";
 import Footer from "./Footer";
@@ -28,6 +28,8 @@ const SignUp = () => {
 
   const [page, setPage] = useState(1);
 
+  const inputRef = useRef()
+
   const togglePass = (e) => {
     e.preventDefault();
     setVisible((prev) => !prev);
@@ -35,6 +37,7 @@ const SignUp = () => {
 
   useEffect(() => {
     console.log(email);
+    inputRef.current.focus()
   }, []);
 
   const validateEmail = (email) => {
@@ -125,6 +128,7 @@ const SignUp = () => {
 
         <h3>Email</h3>
         <input
+        ref={inputRef}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -134,6 +138,7 @@ const SignUp = () => {
 
       <div className="password-wrapper">
         <input
+        ref={inputRef}
           type={visible ? "text" : "password"}
           name="password"
           placeholder="password"
@@ -147,6 +152,7 @@ const SignUp = () => {
           
                 <h3>Organization</h3>
                 <input
+                 ref={inputRef}
                   onChange={(e) => {
                     setOrganization(e.target.value);
                   }}
@@ -154,6 +160,7 @@ const SignUp = () => {
 
       <h3>Website URL</h3>
       <input
+       ref={inputRef}
         onChange={(e) => {
           setURL(e.target.value);
         }}
@@ -161,6 +168,7 @@ const SignUp = () => {
 
       <h3>City</h3>
       <input
+      ref={inputRef}
         onChange={(e) => {
           setCity(e.target.value);
         }}
@@ -168,6 +176,7 @@ const SignUp = () => {
 
       <h3>Address</h3>
       <input
+       ref={inputRef}
         onChange={(e) => {
           setAddress(e.target.value);
         }}
@@ -182,6 +191,7 @@ const SignUp = () => {
 
       <h3>Zip</h3>
       <input
+      ref={inputRef}
         onChange={(e) => {
           setZip(e.target.value);
         }}
@@ -190,6 +200,7 @@ const SignUp = () => {
 
       <h3>Cell Phone</h3>
       <input
+      ref={inputRef}
         onChange={(e) => {
           setCell(e.target.value);
         }}
@@ -197,6 +208,7 @@ const SignUp = () => {
 
       <h3>Work Phone</h3>
       <input
+      ref={inputRef}
         onChange={(e) => {
           setWork(e.target.value);
         }}
@@ -204,6 +216,7 @@ const SignUp = () => {
 
       <h3>Note</h3>
       <input
+      ref={inputRef}
         onChange={(e) => {
           setNote(e.target.value);
         }}

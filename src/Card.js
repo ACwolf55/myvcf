@@ -113,17 +113,22 @@ END:VCARD
 <div className='contact-card'>
     <div className='logo-background'>
     <div className='logo-card'>
-      {/* <img src='/plumberLogo.jpg'style={{"height" : "80px", "width" : "200px"}} onClick={()=>window.open('https://1800plumber.com/locations/scottsdale-az', '_blank')}></img> */}
     </div> 
     </div>
 
      <div style={{"height" : "100vh"}}>
-     <p style={{"marginTop" : "30px", "marginBottom" : "30px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
+     <p style={{"marginTop" : "10px", "marginBottom" : "20px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
      <h5>{note}</h5>
-     <h5>Please click the blue button to add us in your contacts for any future needs!</h5>
-          <h5>IF/WHEN - Feel free to send pictures/videos of issues via text or email!</h5>
 
-    <a href="" onClick={createVCard}>
+     <div className='card-url-div'>
+     <h4> Save / copy to share !</h4>
+      <h4><em>{`https://myvcard.lol/#/card/${organization}`}</em></h4>
+      <button onClick={() => {navigator.clipboard.writeText(`https://myvcard.lol/#/card/${organization}`)}}>Copy</button>
+     </div>
+     <h5>Please click the blue button to add us in your contacts !</h5>
+   
+
+    <a onClick={createVCard}>
        <button id='contact-btn'>ADD TO CONTACTS</button>
      </a>
      </div>
