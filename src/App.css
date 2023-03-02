@@ -3,10 +3,7 @@
   font-family: 'Fredoka One', cursive;
   background-color: black;
   color:white;
-  margin:0;
-  padding: 0;
  
-
 }
 
 header{
@@ -16,7 +13,7 @@ header{
 }
 
 .header-sides{
-  width:34vw ;
+  width:33vw ;
   height: 195px;
   background-color: #4ED8FF;
   padding-top:8px;
@@ -66,6 +63,7 @@ cursor: pointer;
 .home{
   height: 100vh;
   border: 10px solid white;
+  width:98vw;
 }
 
 nav{
@@ -92,6 +90,7 @@ margin: 0;
 padding: 0;
 
 }
+
 
 main{
   display: flex;
@@ -242,6 +241,11 @@ footer{
 }
 
 @media (max-width:900px) {
+
+  .home{
+height: 900px;
+
+  }
   .header-sides {
    display:none;
   }

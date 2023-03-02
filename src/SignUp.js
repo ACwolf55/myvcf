@@ -41,12 +41,16 @@ const SignUp = () => {
   }, []);
 
   const validateEmail = (email) => {
+    if(organization ==''){
+      alert('neeed organization name')
+    }else{
     console.log(email);
     return String(email)
       .toLowerCase()
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+    }
   };
 
   const checker =()=>{
@@ -75,7 +79,20 @@ const SignUp = () => {
   const register = (e) => {
     e.preventDefault();
     const newVendor = {
-      email,password,organization,cellPhone,address,city,state,zip
+      email,password,organization,cellPhone,address,city,state,zip,
+      vcf:{ organization,
+        URL,
+        city,
+        address,
+        state,
+        zip,
+        note,
+        email,
+        cellPhone,
+        workPhone,
+        logo,
+        facebook,
+        instagram,}
     }
     const test = validateEmail(newVendor.email);
     
@@ -88,36 +105,13 @@ const SignUp = () => {
           console.log(res.data);
           sessionStorage.setItem("email", res.data);
           //  sessionStorage.setItem("id", res.data.registeredVendor.id);
-          submitNewCard();
+          navigate(`/logo-upload/${organization}`);
         })
         .catch((err) => alert(err.response.request.response));
     } else {
       alert("You have entered an invalid email address!");
     }
   };
-
-  const submitNewCard = () => {
-    axios
-      .post("/newCard", {
-        organization,
-        URL,
-        city,
-        address,
-        state,
-        zip,
-        note,
-        email,
-        cellPhone,
-        workPhone,
-        logo,
-        facebook,
-        instagram,
-      })
-      .then((res) => {
-        console.log(res.data);
-        navigate(`/card/${organization}`);
-      });
-    };
     
   return (
     <div>

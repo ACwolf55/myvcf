@@ -8,13 +8,16 @@ require("dotenv").config();
 const {MongoClient} = require('mongodb');
 const { MongoURI } = process.env;
 const client = new MongoClient(MongoURI,{ useNewUrlParser:true, useUnifiedTopology: true})
+const {cloudinary} = require('./cloudinary')
+
+
 const multer = require('multer')
 const upload = multer()
 
 
 const {PORT} = process.env
-app.use(express.json())
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.json({limit:'50mb'}))
+app.use(bodyParser.urlencoded({lmit:'50mb',extended:true}))
 app.use(bodyParser.json())
 // app.use(express.static('public'))
 app.use(cors())
@@ -23,36 +26,45 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
 
-app.post('/picUpload', async (req,res,next)=>{
-    console.log('test')
-    console.log(req.body)
-  
-
-
+app.post('/picUpload/:organization', async (req,res)=>{     
+    console.log(req.params.organization)
+    const {organization} = req.params
+    
     try {
+      //upload pic to cloudinary
+      const cloudRes = await cloudinary.uploader.
+      upload(req.body.data, {
+        upload_preset: 'overlap'
+      })
+      const pic_url =  cloudRes.public_id
+      
+       //insert pic_url into venders on mongoDB
       await client.connect()
+      const filter = { organization: organization };
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          pic_url: pic_url
+        },
+      };
+      const dbRes = await client.db('quick-quotes').collection('vendors')
+      .updateOne( filter, updateDoc,options)
 
-      const cardRes = await client.db('quick-quotes').collection('pics').insertOne(req.body)
+      console.log(dbRes)
       
-      
-      return res.send(req.body)
-      
+      res.send(pic_url)
     } catch (e){
         console.error(e)
     } finally {
-        await client.close()
-    }
-    
-    if(file.detectedFileExtension != ".jpg" || ".png") next(new Error("invlaid file type"))
-
-    
+      await client.close()
+  }
 })
 
 
 app.post('/newCard',async(req,res)=>{
     const {organization,URL,
         city,address,state,zip,note,
-        mail,cellPhone, workPhone,
+        email,cellPhone, workPhone,
     } = req.body
 
     let vcf ={}
@@ -94,13 +106,13 @@ app.get('/getCard/:organization',async(req,res)=>{
 
     try {
         await client.connect()
-        const card = await client.db('quick-quotes').collection('vcards').findOne( {organization:organization} )
+        const card = await client.db('quick-quotes').collection('vendors').findOne( {organization:organization} )
         console.log(card)
         if(card==null){
           return res.status(409).send('no organization found')
         }else{
         
-        return res.send(card)
+        return res.send(card.vcf)
         }
       } catch (e){
           console.error(e)

@@ -3,9 +3,8 @@ import Header from './Header';
 import HomeReturnBar from './HomeReturnBar';
 import Footer from './Footer';
 import FileSaver from "file-saver";
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
 
 
 const Card = () => {
@@ -54,17 +53,7 @@ const Card = () => {
       var file = new Blob(
         // ["\ufeff",
         [
-  //         `BEGIN:VCARD
-  // VERSION:3.0
-  // ORG:${organization}
-  // EMAIL;type=INTERNET;type=pref:${email}
-  // TEL;type=MAIN:${workPhone}
-  // TEL;type=CELL;type=VOICE;type=pref:${cellPhone}
-  // ADR;;type=WORK;type=pref;;${address};${city};${city};${state};${zip};
-  // URL;type=WORK;:${webURL}
-  // NOTE;:${note}
-  // END:VCARD
-  // `
+ 
         `BEGIN:VCARD
 VERSION:3.0
 ORG:${organization}

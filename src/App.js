@@ -11,7 +11,7 @@ import ExistingClients from './ExistingClients';
 import ErrorPage from './ErrorPage';
 import NewCard from './NewCard';
 import Card from './Card';
-import ImageTest from './ImageTest';
+import LogoUpload from './LogoUpload';
 import Login from './Login';
 import SignUp from './SignUp';
 import SirensAndSprites from './Cards/SirensAndSprites.js';
@@ -30,7 +30,7 @@ function App() {
     <Route path='/frenchys' element={<Frenchys/>} />
     <Route path='/card/:organization' element={<Card/>} />
     <Route path='/card-test' element={<CardTest/>} />
-    <Route path='/image-test' element={<ImageTest/>} />
+    <Route path='/logo-upload/:organization' element={<LogoUpload/>} />
     <Route path='/sign-up' element={<SignUp/>} />
     <Route path='/login' element={<Login/>} />
     <Route path='/Sirens-&-Sprites' element={<SirensAndSprites/>} />
