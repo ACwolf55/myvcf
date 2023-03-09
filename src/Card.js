@@ -5,6 +5,7 @@ import Footer from './Footer';
 import FileSaver from "file-saver";
 import { useParams,useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import {Image} from 'cloudinary-react'
 
 
 const Card = () => {
@@ -22,7 +23,7 @@ const Card = () => {
     const [email,setEmail] = useState('')
     const [cellPhone,setCellPhone] = useState('')
     const [workPhone,setWorkPhone] = useState('')
-    const [logo,setLogo] = useState('')
+    const [pic_url,setPic_url] = useState('')
     const [facebook,setFacebook] = useState('')
     const [instagram,setInstagram] = useState('')
     
@@ -30,16 +31,18 @@ const Card = () => {
     useEffect(()=>{
         axios.get(`/getCard/${organization}`).then((res)=>{
             console.log(res.data)
-            setWebURL(res.data.webURL)
-            setCity(res.data.city)
-            setAddress(res.data.address)
-            setState(res.data.state)
-            setEmail(res.data.email)
-            setZip(res.data.zip)
-            setNote(res.data.note)
-            setEmail(res.data.email)
-            setCellPhone(res.data.cellPhone)
-            setWorkPhone(res.data.workPhone)
+            setWebURL(res.data.vcf.webURL)
+            setCity(res.data.vcf.city)
+            setAddress(res.data.vcf.address)
+            setState(res.data.vcf.state)
+            setEmail(res.data.vcf.email)
+            setZip(res.data.vcf.zip)
+            setNote(res.data.vcf.note)
+            setEmail(res.data.vcf.email)
+            setCellPhone(res.data.vcf.cellPhone)
+            setWorkPhone(res.data.vcf.workPhone)
+            setPic_url(res.data.pic_url)
+
         })
 
     },[])
@@ -100,10 +103,13 @@ END:VCARD
 
     {city=='' ? <h2> Loading data</h2> :
 <div className='contact-card'>
-    <div className='logo-background'>
-    <div className='logo-card'>
-    </div> 
-    </div>
+      <Image 
+      cloudName='acwolf'
+      publicId={pic_url}
+        width='200'
+        crop='scale'
+      />
+
 
      <div style={{"height" : "100vh"}}>
      <p style={{"marginTop" : "10px", "marginBottom" : "20px"}} ><em>THANKS FOR SCANNING ~ !</em></p>

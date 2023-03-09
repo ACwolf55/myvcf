@@ -10,11 +10,6 @@ const { MongoURI } = process.env;
 const client = new MongoClient(MongoURI,{ useNewUrlParser:true, useUnifiedTopology: true})
 const {cloudinary} = require('./cloudinary')
 
-
-const multer = require('multer')
-const upload = multer()
-
-
 const {PORT} = process.env
 app.use(express.json({limit:'50mb'}))
 app.use(bodyParser.urlencoded({lmit:'50mb',extended:true}))
@@ -24,7 +19,6 @@ app.use(cors())
 app.use(express.static(path.resolve(`${__dirname}/../build`))) 
 
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
-
 
 app.post('/picUpload/:organization', async (req,res)=>{     
     console.log(req.params.organization)
@@ -112,7 +106,7 @@ app.get('/getCard/:organization',async(req,res)=>{
           return res.status(409).send('no organization found')
         }else{
         
-        return res.send(card.vcf)
+        return res.send({vcf:card.vcf,pic_url:card.pic_url})
         }
       } catch (e){
           console.error(e)
