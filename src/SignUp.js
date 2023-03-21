@@ -117,7 +117,7 @@ const SignUp = () => {
     <div>
       <Header />
       <HomeReturnBar />
-      <p>Sing-up for a card to be created for your business!~</p>
+      <p>Sign-up for a card to be created for your business!~</p>
 
 
         <h3>Email</h3>
