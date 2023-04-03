@@ -15,8 +15,19 @@ import LogoUpload from './LogoUpload';
 import Login from './Login';
 import SignUp from './SignUp';
 import SirensAndSprites from './Cards/SirensAndSprites.js';
+import React,{useEffect} from 'react'
+import axios from 'axios'
 
 function App() {
+
+  useEffect(()=>{
+    axios.put(`/traffic-counter/MyVCard`).then((res)=>{
+      
+    })
+
+  },[])
+
+
   return (
     <div className="App">
 

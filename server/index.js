@@ -20,6 +20,22 @@ app.use(express.static(path.resolve(`${__dirname}/../build`)))
 
 app.listen(PORT, () => console.log(`Server runnning on port ${PORT}!`))
 
+
+app.put('/traffic-counter/:app', async(req,res)=>{
+  
+  const {app}= req.params
+  try {
+      await client.connect()
+      const dbRes = await client.db('quick-quotes').collection('analytics').updateOne( {name:"traffic-counter"},{ $inc: {[`${app}`]: 1,}} )
+      console.log(dbRes)
+      return res.send(dbRes)
+    } catch (e){
+        console.error(e)
+    } finally {
+        await client.close()
+    }
+})
+
 app.post('/picUpload/:organization', async (req,res)=>{     
     console.log(req.params.organization)
     const {organization} = req.params
