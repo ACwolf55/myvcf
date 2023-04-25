@@ -23,7 +23,7 @@ const Graphico = () => {
     </div>
     
          <p style={{"marginTop" : "50px", "marginBottom" : "50px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
-    <a href='/graphico.vcf' download><button id='contact-btn'><b>Add to Contacts</b></button></a>
+    <a href='/graphico.vcf' download><button className='contact-btn'><b>Add to Contacts</b></button></a>
     <Footer/>
 
     </div>

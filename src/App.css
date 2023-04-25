@@ -105,6 +105,14 @@ main{
   padding: 30px;
 }
 
+.plumber{
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .contact-card{
   display: flex;
   flex-direction: column;
@@ -133,7 +141,7 @@ main{
   align-items: center;
 }
 
-#contact-btn{
+.contact-btn{
   background-color: #302ea0; /* Green */
 border: 2px solid rgb(0, 0, 0);
 color: white;
@@ -145,9 +153,17 @@ display: inline-block;
 font-size: 18px;
 border-radius: 25px;
 }
-#contact-btn:hover{
+.contact-btn:hover{
   background-color: #2d2add;
   color: rgb(158, 179, 198);
+}
+#call-btn{
+  background-color: #00AB43;
+  width:200px;
+}
+#chat-btn{
+  background-color: #FDB400;
+  width:200px;
 }
 
 .small-logo{
@@ -283,7 +299,7 @@ width:95vw;
 
   .HomeReturnBar{
     height: 5vh;
-    width: 364px;
+    width: 100vw;
     display: flex;
     align-items: center;
     background-color: #4ED8FF;

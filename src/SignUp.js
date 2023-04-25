@@ -226,7 +226,7 @@ const SignUp = () => {
             <input onChange={(e)=>{setFacebook(e.target.value)}}></input> */}
       <br></br>
       <br></br>
-      <button onClick={register} id="contact-btn">
+      <button onClick={register} className="contact-btn">
         {" "}
         SIGN-UP{" "}
       </button>

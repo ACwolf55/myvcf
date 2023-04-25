@@ -124,7 +124,7 @@ END:VCARD
    
 
     <a onClick={createVCard}>
-       <button id='contact-btn'>ADD TO CONTACTS</button>
+       <button className='contact-btn'>ADD TO CONTACTS</button>
      </a>
      </div>
 

@@ -23,7 +23,7 @@ const Frenchys = () => {
 
 
          <p style={{"marginTop" : "50px", "marginBottom" : "50px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
-    <a href='/Frenchys.vcf' download><button id='contact-btn'><b>Add to Contacts</b></button></a>
+    <a href='/Frenchys.vcf' download><button className='contact-btn'><b>Add to Contacts</b></button></a>
     <Footer/>
     </div>
   )

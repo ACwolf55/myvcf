@@ -84,7 +84,7 @@ const Login = () => {
           </div>
           </label>
        <br></br>
-       <button onClick={loginVendor} style={{boxShadow:'black 1px 1px 2px', marginRight:'5px',marginTop:'5px'}} id='contact-btn'>Login</button>
+       <button onClick={loginVendor} style={{boxShadow:'black 1px 1px 2px', marginRight:'5px',marginTop:'5px'}} className='contact-btn'>Login</button>
     </div>
   )
 }

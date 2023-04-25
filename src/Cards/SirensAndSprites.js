@@ -24,7 +24,7 @@ const SirensAndSprites = () => {
     <h5>"instagram: @cardstockandchalk          Venmo: @kelsey-freese"</h5>
 
          <p style={{"marginTop" : "50px", "marginBottom" : "50px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
-    <a href='/SirensAndSprites.vcf' download><button id='contact-btn'><b>Add to Contacts</b></button></a>
+    <a href='/SirensAndSprites.vcf' download><button className='contact-btn'><b>Add to Contacts</b></button></a>
     <Footer/>
     </div>
   )

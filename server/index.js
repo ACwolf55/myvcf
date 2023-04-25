@@ -82,12 +82,12 @@ app.post('/newCard',async(req,res)=>{
     if(workPhone==''){
         vcf={organization,URL,
             city,address,state,zip,note,
-            mail,cellPhone
+            email,cellPhone
         } 
     }else{
        vcf={organization,URL,
             city,address,state,zip,note,
-            mail,cellPhone, workPhone
+            email,cellPhone, workPhone
         } 
     }
     console.log(req.body)
