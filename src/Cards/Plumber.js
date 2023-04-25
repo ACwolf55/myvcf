@@ -6,11 +6,11 @@ import HomeReturnBar from '../HomeReturnBar'
 
 const Plumber = () => {
   return (
-    <>
+    <div className='contact-card'>
     <Header/>
     <HomeReturnBar />
 {/* <Promo/> */}
-<div className='contact-card'>
+<div className='plumber'>
     <div className='logo-background'>
     <div className='logo-card'>
       <img src='/plumberLogo.jpg'style={{"height" : "80px", "width" : "200px"}} onClick={()=>window.open('https://1800plumber.com/locations/scottsdale-az', '_blank')}></img>
@@ -23,7 +23,7 @@ const Plumber = () => {
      <h6></h6>
      <button className='contact-btn' id='call-btn'><a href="tel:1-800-758-6237"><b>Call Us</b></a></button>
      <br/>
-     <button className='contact-btn' id='chat-btn'><a href="https://1800plumber.com/locations/scottsdale-az/9168"><b>Chat Us</b></a></button>
+     <button className='contact-btn' id='chat-btn'><a href="https://1800plumber.com/locations/scottsdale-az/"><b>Chat Us</b></a></button>
   
           <h5>IF/WHEN - Feel free to send pictures/videos of issues via text or email!</h5>
      <a href='/1800plumber.vcf' download><button className='contact-btn'><b>Add to Contacts</b></button></a>
@@ -32,7 +32,7 @@ const Plumber = () => {
      </div>
      <Footer/>
  
-     </>
+     </div>
   )
 }
 
