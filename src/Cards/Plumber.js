@@ -21,7 +21,7 @@ const Plumber = () => {
      <p style={{"marginTop" : "30px", "marginBottom" : "30px"}} ><em>THANKS FOR SCANNING ~ !</em></p>
      <h5>Hi there! We're you're locally owned and operated Plumbing and HVAC experts.</h5>
      <h6></h6>
-     <button className='contact-btn' id='call-btn'><a href="tel:1-800-758-6237"><b>Call Us</b></a></button>
+     <button className='contact-btn' id='call-btn'><a href="tel:480-581-9796"><b>Call Us</b></a></button>
      <br/>
      <button className='contact-btn' id='chat-btn'><a href="https://1800plumber.com/locations/scottsdale-az/"><b>Chat Us</b></a></button>
   
