@@ -29,6 +29,7 @@ const Header = () => {
 
         <div className="header-center" onClick={()=> navigate('/')}>
           <img className="logo" src="/myVcard_logo.jpg"></img>
+          <h2>MY VIRTUAL CARD</h2>
         </div>
 
         <div className="header-sides" onClick={()=> navigate('/sign-up')}>
