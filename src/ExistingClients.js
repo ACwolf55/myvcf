@@ -10,7 +10,7 @@ const ExistingClients = () => {
     <div className='clients'>
      <Header/>
      <HomeReturnBar />
-    <h2><u>Existing Clients</u></h2>
+    <h2><u>Featured Clients</u></h2>
 
 <main>
       <Link to='/graphico' className='card-link-card'>
