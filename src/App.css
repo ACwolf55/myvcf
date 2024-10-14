@@ -9,7 +9,7 @@
 header{
  display: flex;
  flex-direction: row;
- height: 240px;
+ height: 150px;
  color: black;
  font-size: larger;
  background-color: #4ED8FF;
@@ -30,7 +30,7 @@ cursor: pointer;
 .header-center{
   width: 32vw;
   background-color:#4ED8FF ;
-  height: 240px;
+  height: 150px;
   display: flex;
   align-items: center;
   flex-direction: column;
