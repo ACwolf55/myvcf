@@ -117,8 +117,8 @@ END:VCARD
 
      <div className='card-url-div'>
      <h4> Save / copy to share !</h4>
-      <h4><em>{`https://myvcard.lol/#/card/${organization}`}</em></h4>
-      <button onClick={() => {navigator.clipboard.writeText(`https://myvcard.lol/#/card/${organization}`)}}>Copy</button>
+      <h4><em>{`https://myvcfd.lol/#/card/${organization}`}</em></h4>
+      <button onClick={() => {navigator.clipboard.writeText(`https://myvcf.lol/#/card/${organization}`)}}>Copy</button>
      </div>
      <h5>Please click the blue button to add us in your contacts !</h5>
    
