@@ -1,0 +1,40 @@
+{
+    "vendors": [
+      {
+        "organization": "Test Organization",
+        "email": "test@example.com",
+        "password": "hashed_password_here",
+        "city": "Test City",
+        "address": "123 Test Street",
+        "state": "CA",
+        "zip": "90210",
+        "note": "Sample note",
+        "cellPhone": "123-456-7890",
+        "workPhone": "098-765-4321",
+        "pic_url": "cloudinary_image_id"
+      }
+    ],
+    "analytics": [
+      {
+        "name": "traffic-counter",
+        "app1": 0,
+        "app2": 0,
+        "app3": 0
+      }
+    ],
+    "vcards": [
+      {
+        "organization": "Test Organization",
+        "URL": "https://example.com",
+        "city": "Test City",
+        "address": "123 Test Street",
+        "state": "CA",
+        "zip": "90210",
+        "note": "Sample note",
+        "email": "test@example.com",
+        "cellPhone": "123-456-7890",
+        "workPhone": "098-765-4321"
+      }
+    ]
+  }
+  
