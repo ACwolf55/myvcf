@@ -75,4 +75,4 @@ server/
 - MongoDB document modeling for business data
 - bcrypt password hashing
 - Built-in analytics without a third-party tool
-- The reality of supporting a deployed product (and the cost when the platform changes — RIP Heroku free tier)
+- dynamic routing / URL parameters for profile pages
